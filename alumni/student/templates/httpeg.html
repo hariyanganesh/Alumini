@@ -1,0 +1,15 @@
+<html>
+<body>
+<table border=3>
+{% for i in s%}
+ <tr>
+   <td>{{i.name}}</td>
+   <td>{{i.lastname}}</td>
+   <td>{{i.idnumber}}</td>
+   <td>{{i.jobstatus}}</td>
+   <td>{{i.passout}}</td>
+ </tr>
+{% endfor %}
+</table>
+</body>
+</html>

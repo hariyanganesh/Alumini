@@ -1,0 +1,56 @@
+{% extends '.\navbar.html'%}
+{% load bootstrap %}
+{% block content %}
+<form method="POST" class="display-form">{% csrf_token %}
+<table border=3 style="margin:30px auto; align:center">
+	<caption style="align:center;">	<b>ALUMINI DATABASE</b></caption>
+<tr>
+	<th></th>
+   <th>Name</th>
+   <th>Last Name</th>
+   <th>ID Number</td>
+   <th>Job Status</th>
+   <th>Passout Year</th>
+   <th>Mobile</th>
+   <th>Branch</th>
+   
+ </tr>
+{% for i in s%}
+ <tr>
+ 	<td><input type="checkbox" name="records" id="{{i.idnumber}}" value="{{i.idnumber}}"></input></td>
+   <td>{{i.name}}</td>
+   <td>{{i.lastname}}</td>
+   <td>{{i.idnumber}}</td>
+   <td>{{i.jobstatus}}</td>
+   <td>{{i.passout}}</td>
+   <td>{{i.mobile}}</td>
+   <td>{{i.branch}}</td>
+   
+ </tr>
+{% endfor %}
+</table>
+
+<div class="container">
+  <form method="GET">
+    {{ filter.form|bootstrap }}
+    <button type"submit" class="btn btn-primary">Search</button>
+ </form>
+
+<u1>
+ { %for student in filter.qs %}
+   <li>
+     <a href="{% url 'form_template' student.Branch %}'>{{ student.Branch }}</a>
+   </li>
+  {% endfor %}
+</u1>
+</div>
+
+<button type="submit" class="button" style="margin:auto;" action="{% url 'display' %}">DELETE</button>
+</form>
+
+<script	type="javascript">
+	function deleteFunc(){
+
+}
+</script>
+{%endblock content%}
